@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0A0A0A;
+  --surface: #141414;
+  --text: #EDEDED;
+  --muted: #888888;
+  --brand: #003B04;
+  --brand-hi: #0A6F11;
+}
+
+html,
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle brand-tinted selection */
+::selection {
+  background-color: var(--brand-hi);
+  color: var(--text);
+}
+
+/* Focus ring uses the brand accent — visible without being loud */
+:focus-visible {
+  outline: 2px solid var(--brand-hi);
+  outline-offset: 2px;
+}
