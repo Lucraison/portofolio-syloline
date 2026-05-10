@@ -3,11 +3,10 @@ import { ArtworkGrid } from "@/components/ArtworkGrid";
 import { BioColumn } from "@/components/BioColumn";
 import { BrandHeader } from "@/components/BrandHeader";
 
-// Server Component — runs on the server on every request, fetches
-// artworks directly from MongoDB. No public API needed.
-// Set `revalidate` to cache for 60s; admin actions can revalidate the
-// path explicitly when content changes.
-export const revalidate = 60;
+// Server Component — fetch from MongoDB at request time (not at build).
+// Avoids Mongoose during `next build` on Vercel; Atlas must still allow
+// serverless egress at runtime (e.g. IP allowlist 0.0.0.0/0).
+export const dynamic = "force-dynamic";
 
 export default async function HomePage() {
   const artworks = await listArtworks();

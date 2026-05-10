@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import { getArtworkBySlug } from "@/lib/artworks";
 import { BrandHeader } from "@/components/BrandHeader";
 
-export const revalidate = 60;
+export const dynamic = "force-dynamic";
 
 type Props = { params: { slug: string } };
 
